@@ -134,3 +134,4 @@ C:\Users\VIETPT\Desktop\Study_Angular\API\CodePulse.API\CodePulse.API\obj\Debug\
 C:\Users\VIETPT\Desktop\Study_Angular\API\CodePulse.API\CodePulse.API\obj\Debug\net8.0\CodePulse.API.pdb
 C:\Users\VIETPT\Desktop\Study_Angular\API\CodePulse.API\CodePulse.API\obj\Debug\net8.0\CodePulse.API.genruntimeconfig.cache
 C:\Users\VIETPT\Desktop\Study_Angular\API\CodePulse.API\CodePulse.API\obj\Debug\net8.0\ref\CodePulse.API.dll
+C:\Users\VIETPT\Desktop\Study_Angular\API\CodePulse.API\CodePulse.API\obj\Debug\net8.0\CodePulse.API.sourcelink.json

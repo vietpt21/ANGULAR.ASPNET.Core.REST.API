@@ -40,9 +40,9 @@ namespace CodePulse.API.Repositories.Implementation
 
         }
 
-        public Task<BlogPost?> GetByIdAsync(Guid id)
+        public async Task<BlogPost?> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await dbContext.BlogPosts.Include(x => x.Categories).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public Task<BlogPost?> GetByUrlHandleAsync(string urlHandle)
@@ -50,9 +50,25 @@ namespace CodePulse.API.Repositories.Implementation
             throw new NotImplementedException();
         }
 
-        public Task<BlogPost?> UpdateAsync(BlogPost blogPost)
+        public async Task<BlogPost?> UpdateAsync(BlogPost blogPost)
         {
-            throw new NotImplementedException();
+            var existingBlogPost = await dbContext.BlogPosts.Include(x => x.Categories)
+                .FirstOrDefaultAsync(x => x.Id == blogPost.Id);
+
+            if (existingBlogPost == null)
+            {
+                return null;
+            }
+
+            // Update BlogPost
+            dbContext.Entry(existingBlogPost).CurrentValues.SetValues(blogPost);
+
+            // Update Categories
+            existingBlogPost.Categories = blogPost.Categories;
+
+            await dbContext.SaveChangesAsync();
+
+            return blogPost;
         }
     }
 }
